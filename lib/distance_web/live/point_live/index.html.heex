@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="column column-50" >
+    <div style=" display:flex; justify-content: center;">
+      <h3>Instrucciones: </h3>
+    </div>
+    <div style=" display:flex; justify-content: center;">
+      <dl>
+      <dt><b>Tecla de Space:</b> Inicia o Para</dt>
+      <dt><b>Tecla de q:</b> Incrementa la velocidad</dt>
+      <dt><b>Tecla de e:</b> Disminuye la velocidad</dt>
+      <dt><b>Tecla de w:</b> Avanza</dt>
+      <dt><b>Tecla de s:</b> Retroce</dt>
+      <dt><b>Tecla de a:</b> Va hacia la izquierda</dt>
+      <dt><b>Tecla de d:</b> Va hacia la derecha</dt>
+      </dl>
+    </div>
+    
+    <div style=" display:flex; justify-content: center; padding: 0px 5rem">
+      <%#= inspect @lista_velocidades %>
+      <table>
+        <thead>
+          <tr>
+            <th>Velocidad</th>
+            <th>Tiempo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= for value <- @lista_velocidades do %>
+          <tr>
+            <td><%= value.velocidad %></td>
+            <td><%= value.tiempo %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="column column-50">
+    <span>Velocidad <%= @velocidad %></span>
+    <div class="border">
+      <div class="pelota" phx-window-keyup="move" style={"top: #{@top}%; bottom: #{@bottom}% !important; right: #{@right}%; left: #{@left}%!important;"}></div>
+    </div>
+  </div>
+  
+</div>
+
